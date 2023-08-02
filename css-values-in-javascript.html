@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="img/favicon.ico" type="image/ico" />
+    <title>Atiquzzaman Soikat Portfolio | Senior Full Stack Developer</title>
+    <link
+      rel="canonical"
+      href="https://soikat.dev/portfolio/"
+      key="canonical"
+    />
+    <meta
+      name="description"
+      content="Welcome to my portfolio website! I'm a skilled web developer passionate about crafting stunning & functional websites that deliver exceptional user experiences."
+      key="desc"
+    />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      property="og:title"
+      content="Atiquzzaman Soikat | Freelance Senior Full Stack Developer"
+    />
+    <meta property="og:url" content="https://soikat.dev/portfolio/" />
+    <meta property="og:image" content="https://soikat.dev/img/OG-image.png" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content=" Welcome to my portfolio website! I'm a skilled web developer passionate about crafting stunning & functional websites that deliver exceptional user experiences."
+    />
+    <meta property="og:locale" content="en_GB" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="vendors/linericon/style.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!--================ Start Header Area =================-->
+    <header class="header_area">
+      <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="index.html"
+              ><img src="img/logo.svg" alt="website logo"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+              <ul class="nav navbar-nav menu_nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#services">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item active">
+                  <a
+                    href="blog.html"
+                    class="nav-link"
+                    >Blog</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================ End Header Area =================-->
+
+    <!--================ Start Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div class="banner_content text-center">
+            <h2>Css values in JavaScript</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ End Banner Area =================-->
+
+    <!--================ Css values in javascript =================-->
+    <section class="css-values">
+      <div class="container">
+        <div class="markdown-body post-body">
+          <p class="mb-4">
+            Occassionally while working with the dom(document object model) in
+            JavaScript you might have to access CSS values of a certain dom
+            element. There are couple of ways to do it. Let's check them out.
+          </p>
+          <h3 class="mb-3" id="getting-inline-css-styles">
+            Getting inline CSS styles
+            <a class="direct-link" href="#getting-inline-css-styles">#</a>
+          </h3>
+          <p class="mb-2">
+            Inline CSS are CSS that are directly added to the dom, for example
+            something like this
+          </p>
+          <pre><code>
+            &lt;div id="app" style="width: 200px; height: 200px; background: rebeccapurple; font-size: 23px;"&gt;
+            &lt;/div&gt;           
+                        
+            &lt;script&gt;
+                const element = document.querySelector('#app');
+                console.log(element.style.width);
+                console.log(element.style.height);
+                console.log(element.fontSize);                            
+            &lt;/script&gt;            
+           </code></pre>
+          <p class="mb-3">
+            As you can see, the inline CSS could be retrived by accessing style
+            property of the element. Don't be fooled by seemingly decieving
+            style property. You won't be able to access external CSS for any
+            element with this.
+          </p>
+          <p class="mb-2">
+            You can also use cssText property of element's style property to get
+            text representation of element's inline css
+          </p>
+          <pre><code>
+            &lt;script&gt;
+                const element = document.querySelector('#app');
+                console.log(element.style.cssText);
+            &lt;/script&gt;
+          </code></pre>
+          <h3 class="mb-3" id="getting-external-css(computed-style)">Getting external CSS(Computed Style) <a class="direct-link" href="#getting-external-css(computed-style)">#</a></h3>
+          <p>You can get any element's computed CSS property using <code class="get_code">getComputedStyle()</code> method. This will return all CSS of an element, not only the CSS added in the stylesheets.</p>
+          <pre><code>
+            &lt;script&gt;
+                const properties = window.getComputedStyle(app2);
+                constole.log(properties.borderRadius)
+                console.log(properties.width);
+                console.log(properties['height'])
+            &lt;/script&gt;
+        </code></pre>
+        <p class="mb-2">This will return all the CSS that element has, including the one you added on Stylesheet, you can use dot(<code class="get_code">.</code>) notation or bracket notation to access any specific property you want.</p>
+        <pre><code>
+            &lt;script&gt;
+                const properties = window.getComputedStyle(app2);
+                constole.log(properties.borderRadius)
+                console.log(properties.width);
+                console.log(properties['height'])
+            &lt;/script&gt;
+        </code></pre>
+        </div>
+      </div>
+    </section>
+    <!--================ Css values in javascript =================-->
+
+    <!--================Footer Area =================-->
+    <footer class="footer_area">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="footer_top flex-column">
+              <div class="footer_logo">
+                <a href="#">
+                  <img src="img/logo.svg" alt="website logo" />
+                </a>
+                <h4>Follow Me</h4>
+              </div>
+              <div class="footer_social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row footer_bottom justify-content-center">
+          <p class="col-lg-8 col-sm-12 footer-text">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | Powered by
+            <a target="_blank" href="https://reformedtech.org/">ReformedTech</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!--================End Footer Area =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope-min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="js/gmaps.min.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
+</html>
