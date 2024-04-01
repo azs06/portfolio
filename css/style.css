@@ -377,13 +377,13 @@ button:focus {
       @media (max-width: 991px) {
         .home_banner_area .banner_inner .banner_content {
           margin-top: 150px; } }
-      .home_banner_area .banner_inner .banner_content h3 {
+      .home_banner_area .banner_inner .banner_content h1 {
         font-size: 40px;
         margin-bottom: 20px;
         position: relative; 
         color: #000000;
       }
-        .home_banner_area .banner_inner .banner_content h3:after {
+        .home_banner_area .banner_inner .banner_content h1:after {
           content: '';
           width: 410px;
           height: 2px;
@@ -392,9 +392,9 @@ button:focus {
           left: 23%;
           background: #000000; }
           @media (max-width: 575px) {
-            .home_banner_area .banner_inner .banner_content h3:after {
+            .home_banner_area .banner_inner .banner_content h1:after {
               display: none; } }
-      .home_banner_area .banner_inner .banner_content h1 {
+      .home_banner_area .banner_inner .banner_content h2 {
         margin-top: 20px;
         font-size: 56px;
         line-height: 60px;
@@ -402,12 +402,12 @@ button:focus {
         color: #000000;
       }
         @media (max-width: 1024px) {
-          .home_banner_area .banner_inner .banner_content h1 {
+          .home_banner_area .banner_inner .banner_content h2 {
             font-size: 56px; } }
         @media (max-width: 767px) {
-          .home_banner_area .banner_inner .banner_content h1 {
+          .home_banner_area .banner_inner .banner_content h2 {
             font-size: 35px; } }
-      .home_banner_area .banner_inner .banner_content h5 {
+      .home_banner_area .banner_inner .banner_content h3 {
         font-size: 24px;
         margin-bottom: 35px; 
         color: #000000;
@@ -1191,14 +1191,14 @@ button:focus {
     font-size: 20px;
     line-height: 24px;
     font-weight: 600; }
-  .contact_info .info_item h6 {
+  .contact_info .info_item h5 {
     font-size: 16px;
     line-height: 24px;
     color: "Roboto", sans-serif;
     font-weight: bold;
     margin-bottom: 0px;
     color: #ffff; }
-    .contact_info .info_item h6 a {
+    .contact_info .info_item h5 a {
       color: #ffff; }
   .contact_info .info_item p {
     font-size: 14px;
