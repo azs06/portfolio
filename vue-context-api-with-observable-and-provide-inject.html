@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="icon" href="img/favicon.ico" type="image/ico" />
+    <title>Atiquzzaman Soikat Portfolio | Senior Full Stack Developer</title>
+    <link
+      rel="canonical"
+      href="https://soikat.dev/portfolio/"
+      key="canonical"
+    />
+    <meta
+      name="description"
+      content="Welcome to my portfolio website! I'm a skilled web developer passionate about crafting stunning & functional websites that deliver exceptional user experiences."
+      key="desc"
+    />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta
+      property="og:title"
+      content="Atiquzzaman Soikat | Freelance Senior Full Stack Developer"
+    />
+    <meta property="og:url" content="https://soikat.dev/portfolio/" />
+    <meta property="og:image" content="https://soikat.dev/img/OG-image.png" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content=" Welcome to my portfolio website! I'm a skilled web developer passionate about crafting stunning & functional websites that deliver exceptional user experiences."
+    />
+    <meta property="og:locale" content="en_GB" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="vendors/linericon/style.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!--================ Start Header Area =================-->
+    <header class="header_area">
+      <div class="main_menu">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <a class="navbar-brand logo_h" href="index.html"
+              ><img src="img/logo.svg" alt="website logo"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div
+              class="collapse navbar-collapse offset"
+              id="navbarSupportedContent"
+            >
+              <ul class="nav navbar-nav menu_nav justify-content-end">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#services">Services</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item active">
+                  <a
+                    href="blog.html"
+                    class="nav-link"
+                    >Blog</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!--================ End Header Area =================-->
+
+    <!--================ Start Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div class="banner_content text-center">
+            <h2>vue context api</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================ End Banner Area =================-->
+
+    <!--================ Css values in javascript =================-->
+    <section class="css-values">
+      <div class="container">
+        <div class="markdown-body post-body">
+            <p class="mb-3">Context api is a mechanism to share state between components popularized by the reac team. Though Vue.js officially doesn't have anything like that(arguably we don't need it because of vuex) but we can have something similar using <a href="https://vuejs.org/v2/api/#Vue-observable">Vue.observable</a> and <a href="https://vuejs.org/v2/api/#provide-inject">Provide, Inject</a>.</p>
+            <h4 class="mb-3">Let's see how we can do that:</h4>
+            <p class="mb-3">Let's say we have a simple applicaion where we need to show user's avatar on header and we also have a settings page where we can update user's profile.</p>
+            <h4 class="mb-3">App.vue</h4>
+            <pre><code>
+              &lt;template&gt;
+                    &lt;div id="app"&gt;
+                    &lt;Header/&gt;
+                    &lt;UserProfile/&gt;
+                    &lt;/div&gt;
+              &lt;/template&gt;
+              
+              &lt;script&gt;
+                    import Vue from "vue";
+                    import UserProfile from "./components/UserProfile";
+                    import Header from "./components/Header";
+                    const user = Vue.observable({
+                        name: "Soikat",
+                        age: 32,
+                        avatar: "https://loremflickr.com/320/240",
+                        updateData(payload) {
+                        const { avatar, name, age } = payload;
+                        if (avatar) user.avatar = avatar;
+                        if (name) user.name = name;
+                        if (age) user.age = age;
+                        }
+              });
+                export default {
+                    name: "App",
+                    components: {
+                    UserProfile,
+                    Header
+                },
+                provide: {
+                    user
+                }
+                };
+              &lt;/script&gt;
+              
+              &lt;style&gt;
+                #app {
+                    font-family: "Avenir", Helvetica, Arial, sans-serif;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    text-align: center;
+                    color: #2c3e50;
+                }
+              &lt;/style&gt;
+              </code></pre>
+              <p class="mb-3">Here you can see we have created an object using Vue.observable and provided this for child components of <code class="get_code">&lt;App /&gt;</code> to consume.</p>
+              <h4 class="mb-3">Header.vue</h4>
+              <pre><code>
+                &lt;template&gt;
+                    &lt;nav class="navigation"&gt;
+                    
+                    &lt;img class="profile-image" width="50" height="50" :src="user.avatar"&gt;
+                    &lt;/nav&gt;
+                &lt;/template&gt;
+              
+                &lt;script&gt;
+                    export default {
+                        name: "Header",
+                        inject: ["user"]
+                    };
+                &lt;/script&gt;
+              
+              &lt;!-- Add "scoped" attribute to limit CSS to this component only --&gt;
+              &lt;style scoped&gt;
+                .navigation {
+                    display: flex;
+                    background: #ccc;
+                    min-height: 70px;
+                    text-align: right;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+                .profile-image {
+                    border-radius: 50%;
+                    border: 1px solid #fff;
+                    padding: 4px;
+                    margin-left: 10px;
+                }
+              &lt;/style&gt;
+              </code></pre>
+              <p class="mb-3">Here we are injecting <code class="get_code">user</code> object and also using that object to display user name and avatar.</p>
+              <h4 class="mb-3">UserProfile.vue</h4>
+              <pre><code>
+                &lt;template&gt;
+                    &lt;div&gt;
+                        &lt;div&gt;
+                            Name:
+                            &lt;input type="text" v-model="userName"&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            Age:
+                            &lt;input type="text" v-model="userAge"&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            Avatar:
+                            &lt;input type="text" v-model="userAvatar"&gt;
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;button @click="updateUser"&gt;Update&lt;/button&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/template&gt;
+              
+                &lt;script&gt;
+                    export default {
+                        name: "UserProfile",
+                        inject: ["user"],
+                        data() {
+                        return {
+                            userName: "",
+                            userAge: "",
+                            userAvatar: ""
+                        };
+                    },
+                    created() {
+                        const { name, age, avatar } = this.user;
+                        this.userName = name;
+                        this.userAge = age;
+                        this.userAvatar = avatar;
+                    },
+                    methods: {
+                        updateUser() {
+                            const payload = {
+                            name: this.userName,
+                            age: this.userAge,
+                            avatar: this.userAvatar
+                            };
+                            const { updateData } = this.user;
+                            updateData(payload);
+                        }
+                    }
+                };
+                &lt;/script&gt;
+              </code></pre>
+              <p class="mb-3">Here we can update the user object without mutating it directly.</p>
+              <p class="mb-3">Here is working example in action -</p>
+              <iframe src="https://codesandbox.io/embed/sweet-sanne-0hpcj?fontsize=14&amp;hidenavigation=1&amp;theme=dark" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" title="sweet-sanne-0hpcj" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-autoplay allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+              <p class="mt-3">What we have achieved could have easily be done using vuex, and I would recommend to use vuex for larger applications, for smaller applications this patten can be used.</p>
+        </div>
+      </div>
+    </section>
+    <!--================ Css values in javascript =================-->
+
+    <!--================Footer Area =================-->
+    <footer class="footer_area">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-12">
+            <div class="footer_top flex-column">
+              <div class="footer_logo">
+                <a href="#">
+                  <img src="img/logo.svg" alt="website logo" />
+                </a>
+                <h4>Follow Me</h4>
+              </div>
+              <div class="footer_social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row footer_bottom justify-content-center">
+          <p class="col-lg-8 col-sm-12 footer-text">
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            All rights reserved | Powered by
+            <a target="_blank" href="https://reformedtech.org/">ReformedTech</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!--================End Footer Area =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope-min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="js/gmaps.min.js"></script>
+    <script src="js/theme.js"></script>
+  </body>
+</html>
